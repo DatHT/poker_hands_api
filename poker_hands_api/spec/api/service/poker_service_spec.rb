@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe PokerService do
   describe '連続リストチェック' do
     example 'リストの中で特別な項目が何回出るかの確認' do
-      expect(PokerService.count_appearance_of_number(%w(C7 H7 D7 S7 C8), 7)).to eql(4)
+      expect(PokerService.count_appearance_of_number(%w[C7 H7 D7 S7 C8], 7)).to eql(4)
     end
     example '連続リスト' do
       expect(PokerService.continuous([1, 2, 3, 4])).to eql(true)
@@ -65,6 +65,9 @@ RSpec.describe PokerService do
     end
     example 'ワンペアのルールかをチェック' do
       expect(PokerService.check_pair('C10 S10 S6 H4 H2')).to eql(true)
+    end
+    example '強さから文字変換のチェック' do
+      expect(PokerRuleName.get_name(7)).to eql('ツーペア')
     end
   end
 end
