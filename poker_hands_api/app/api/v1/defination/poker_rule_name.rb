@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # rubocop:disable BlockComments, AsciiComments
 
-module PokerRuleName
+module V1::Defination::PokerRuleName
   STRAIGHT_FLUSH = 1
   FOUR_OF_A_KIND = 2
   FULL_HOUSE = 3
@@ -16,7 +16,7 @@ module PokerRuleName
   # ポーカーの役名の数字（強さ）から文字変換
   # @@param data_item: 強さ：（１は一番強い）
   # @return: result
-  def self.get_name(type)
+  def get_name(type)
     result = case type
              when STRAIGHT_FLUSH
                'ストレートフラッシュ'
