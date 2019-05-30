@@ -45,6 +45,11 @@ module V1
         is_error = true
         list_error.push(DUPLICATE_ITEM_ERROR)
       end
+      redundant_spaces = check_spaces(arr_params)
+      if redundant_spaces[:validate_error]
+        is_error = true
+        list_error.push(redundant_spaces[:message] + REDUNDANT_SPACE)
+      end
       validate = validate_data(arr_params)
       if validate[:validate_error]
         is_error = true
