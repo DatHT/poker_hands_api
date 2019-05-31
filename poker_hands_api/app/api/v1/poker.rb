@@ -56,6 +56,7 @@ module V1
         list_error.push(validate[:message] + NOT_CORRECT_DATA_ERROR)
       end
       result_hash[:result] = if is_error
+                               result_hash[:success] = false
                                list_error
                              else
                                check_rule(arr_params)
